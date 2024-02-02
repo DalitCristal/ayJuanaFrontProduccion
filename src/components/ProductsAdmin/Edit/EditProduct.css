@@ -1,0 +1,57 @@
+@import url("../../GlobalStyles/ColorStyles.css");
+
+.containerEditProduct {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--color-secundario);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.titleEditProduct {
+  color: var(--color-principal);
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.formEditProduct {
+  display: flex;
+  flex-direction: column;
+}
+
+.labelEditProduct {
+  margin-bottom: 10px;
+  color: var(--color-principal);
+  font-weight: bold;
+}
+
+.inputEditProduct,
+.textareaEditProduct {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  border: 1px solid var(--color-principal);
+  border-radius: 4px;
+}
+
+.textareaEditProduct {
+  height: 200px;
+  resize: vertical;
+}
+
+.btnEditProduct {
+  background-color: var(--color-principal);
+  color: var(--color-white);
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btnEditProduct:hover {
+  background-color: var(--color-opacity-principal);
+}

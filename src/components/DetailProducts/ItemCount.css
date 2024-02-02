@@ -1,0 +1,25 @@
+.counter,
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.btnItemCount {
+  display: inline-block;
+  padding: 0.7rem 1rem;
+  background-color: var(--color-principal);
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: 0.6rem;
+  margin: 0 1.2rem;
+  transition: background-color 0.3s ease;
+  border: solid 1px #18181870;
+  box-shadow: -1px 6px 7px -4px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: -1px 6px 7px -4px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: -1px 6px 7px -4px rgba(0, 0, 0, 0.6);
+}
+
+.btnItemCount:hover {
+  background-color: var(--color-opacity-principal);
+}

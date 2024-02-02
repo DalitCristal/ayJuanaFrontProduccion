@@ -1,0 +1,58 @@
+/* Boton Github */
+.btnGithub {
+  background-color: #24292e;
+  color: #ffffff;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.btnGithub:hover {
+  background-color: #181c20;
+}
+
+.labelPass {
+  display: flex;
+  flex-direction: row;
+}
+
+.registerPass {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-bottom: 1px solid var(--color-black);
+  border-left: 1px solid var(--color-black);
+  border-top: 1px solid var(--color-black);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-right: none;
+}
+
+.registerPass::placeholder {
+  color: var(--color-black);
+}
+
+.registerPass:focus {
+  outline: none;
+}
+
+.showPasswordButton {
+  padding: 5px;
+  margin: 10px 0;
+  border-bottom: 1px solid var(--color-black);
+  border-right: 1px solid var(--color-black);
+  border-top: 1px solid var(--color-black);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-left: none;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.showPasswordButton:focus {
+  outline: none;
+}

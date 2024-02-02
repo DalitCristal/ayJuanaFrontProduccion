@@ -1,0 +1,25 @@
+.deleteAccountContainer {
+  text-align: center;
+  margin: 20px;
+}
+
+.confirmationMessage {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.buttonDeleteMyAccount {
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.deleteButton {
+  background-color: red;
+  color: white;
+}
+
+.cancelButton {
+  background-color: #ccc;
+  color: black;
+}

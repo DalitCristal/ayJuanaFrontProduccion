@@ -1,0 +1,9 @@
+/* COLORS */
+:root {
+  --color-principal: #ce5b83;
+  --color-opacity-principal: hsla(339, 54%, 58%, 0.75);
+  --color-secundario: #ffe1eb;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-red: #ff0000;
+}

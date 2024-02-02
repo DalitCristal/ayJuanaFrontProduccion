@@ -1,0 +1,42 @@
+.user-list {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.confirmationModal {
+  margin: 1rem auto;
+  width: 600px;
+  background-color: #d5acac;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.deleteButton,
+.cancelButton {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.deleteButton {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.deleteButton:hover {
+  background-color: #c82333;
+}
+
+.cancelButton {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.cancelButton:hover {
+  background-color: #5a6268;
+}

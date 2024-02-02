@@ -1,0 +1,43 @@
+.user-card {
+  flex-wrap: wrap;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  max-width: 600px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border: solid 3px rgb(255, 255, 255);
+}
+
+.user-card p {
+  margin: 5px 0;
+}
+
+.user-card a {
+  display: block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.user-card a:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+.custom-checkbox {
+  transform: scale(1.5);
+  margin-right: 5px;
+}
+
+/* Estilos para la tarjeta de usuario cuando está inactiva */
+.user-card.inactive {
+  border: solid 3px red;
+}
+
+/* Estilos para el mensaje de cuenta inactiva */
+.inactive-message {
+  color: red;
+  font-weight: bold;
+}

@@ -1,0 +1,54 @@
+.containerEditProfile {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 8px;
+  margin-top: 50px;
+}
+
+.titleEditProfile {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.formEditProfile {
+  display: flex;
+  flex-direction: column;
+}
+
+.labelEditProfile {
+  margin-bottom: 10px;
+}
+
+.inputEditProfile {
+  padding: 8px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.btnEditProfile {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btnEditProfile:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.errorEditProfile {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}

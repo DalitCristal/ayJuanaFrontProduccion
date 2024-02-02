@@ -1,0 +1,28 @@
+@import url("../GlobalStyles/ColorStyles.css");
+
+.navBar {
+  background-color: var(--color-principal);
+}
+.buttonsNav {
+  margin: 0 auto;
+  width: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.ActiveOption {
+  font-size: 18px;
+  text-transform: uppercase;
+  list-style-type: none;
+  color: var(--color-white);
+  padding: 0.5rem;
+  text-decoration: none;
+}
+.Option {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: var(--color-secundario);
+  text-decoration: none;
+  padding: 16px 0;
+}
