@@ -25,7 +25,7 @@ import GetUsersAdmin from "./pages/UsersAdmin/GetUsersAdmin.jsx";
 import EditRol from "./pages/UsersAdmin/EditRol.jsx";
 import DeleteUsersAdmin from "./pages/UsersAdmin/DeleteUsersAdmin.jsx";
 import GetProfile from "./pages/Profile/GetProfile.jsx";
-import DeleteProfile from "./pages/Profile/deleteProfile.jsx";
+import DeleteProfile from "./pages/Profile/DeleteProfile.jsx";
 import LogViewer from "./pages/Loggers/LogViewer.jsx";
 import { LoggerProvider } from "./components/AdminDashboard/LoggerContext.jsx";
 

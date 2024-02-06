@@ -1,2 +1,1 @@
-//export const HOST = "https://ayjuana.onrender.com";
-export const HOST = "http://localhost:8080";
+export const HOST = import.meta.env.VITE_BACKEND_URL || "http://localhost:8080";
