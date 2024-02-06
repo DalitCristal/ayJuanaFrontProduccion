@@ -27,9 +27,14 @@ const Login = () => {
 
     if (response.status === 200) {
       const datos = await response.json();
-      document.cookie = `jwtCookie=${datos.token}; expires=${new Date(
-        Date.now() + 24 * 60 * 60 * 1000
-      ).toUTCString()}; path=/`;
+      const expirationDate = new Date(Date.now() + 24 * 60 * 60 * 1000);
+      const cookieOptions = {
+        expires: expirationDate.toUTCString(),
+        path: "/",
+        secure: true,
+        sameSite: "strict",
+      };
+      document.cookie = `jwtCookie=${datos.token}; ${cookieOptions}`;
 
       const nameUser = getUserFirstName();
       Swal.fire({
