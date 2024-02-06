@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { getCookiesByName } from "../../../utils/formsUtils.js";
 import { useNavigate } from "react-router-dom";
 import { isTokenExpired } from "../../../utils/formsUtils.js";
-import { validateData } from "./ValidateDataProduct.jsX";
+import { validateData } from "./ValidateDataProduct.jsx";
 import postProduct from "./FetchPost.jsx";
 import InputForm from "./InputForm.jsx";
 import Swal from "sweetalert2";
