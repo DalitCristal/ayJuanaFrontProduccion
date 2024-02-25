@@ -50,12 +50,7 @@ const Checkout = ({ onClick }) => {
             timer: 2000,
           });
         } catch (error) {
-          Swal.fire({
-            title: `Hubo un error al actualizar, ${error} `,
-            icon: "error",
-            showConfirmButton: false,
-            timer: 2000,
-          });
+          console.error(`Hubo un error al actualizar, ${error}`);
         }
       };
       fetchData();
@@ -162,19 +157,14 @@ const Checkout = ({ onClick }) => {
       } else {
         const errorData = await response.json();
         Swal.fire({
-          title: `Error al eliminar producto: ${errorData} `,
+          title: `Error al eliminar producto: ${errorData}`,
           icon: "error",
           showConfirmButton: false,
           timer: 2000,
         });
       }
     } catch (error) {
-      Swal.fire({
-        title: `${error} `,
-        icon: "error",
-        showConfirmButton: false,
-        timer: 2000,
-      });
+      console.error(`${error}`);
     }
   };
 
@@ -205,19 +195,14 @@ const Checkout = ({ onClick }) => {
       } else {
         const errorData = await response.json();
         Swal.fire({
-          title: `Error al vaciar el carrito: ${errorData} `,
+          title: `Error al vaciar el carrito: ${errorData}`,
           icon: "error",
           showConfirmButton: false,
           timer: 2000,
         });
       }
     } catch (error) {
-      Swal.fire({
-        title: `${error} `,
-        icon: "error",
-        showConfirmButton: false,
-        timer: 2000,
-      });
+      console.error(`${error}`);
     }
   };
 

@@ -79,12 +79,7 @@ const PaymentMP = () => {
           });
         }
       } catch (error) {
-        Swal.fire({
-          title: `Error inesperado, ${error} `,
-          icon: "error",
-          showConfirmButton: false,
-          timer: 2000,
-        });
+        console.error(`Error inesperado, ${error}`);
       }
     };
 
@@ -106,12 +101,7 @@ const PaymentMP = () => {
         return data;
       })
       .catch((error) => {
-        Swal.fire({
-          title: `${error} `,
-          icon: "error",
-          showConfirmButton: false,
-          timer: 2000,
-        });
+        console.error(`${error}`);
       })
       .finally(() => {
         setIsLoading(false);

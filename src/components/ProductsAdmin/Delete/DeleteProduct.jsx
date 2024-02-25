@@ -51,20 +51,16 @@ const DeleteProduct = () => {
         navigate("/products");
       } else {
         const errorData = await response.json();
+
         Swal.fire({
-          title: `Error al eliminar el producto: ${errorData} `,
+          title: `Error al eliminar el producto: ${errorData}`,
           icon: "error",
           showConfirmButton: false,
           timer: 2000,
         });
       }
     } catch (error) {
-      Swal.fire({
-        title: `Error en la solicitud, ${error} `,
-        icon: "error",
-        showConfirmButton: false,
-        timer: 2000,
-      });
+      console.error(`Error en la solicitud, ${error}`);
     } finally {
       setLoading(false);
     }

@@ -45,12 +45,9 @@ const CartWidget = () => {
           });
         }
       } catch (error) {
-        Swal.fire({
-          title: `Error inesperado al obtener la cantidad total del carrito: ${error} `,
-          icon: "error",
-          showConfirmButton: false,
-          timer: 2000,
-        });
+        console.error(
+          `Error inesperado al obtener la cantidad total del carrito: ${error}`
+        );
       }
     };
 

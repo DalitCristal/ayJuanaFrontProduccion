@@ -77,12 +77,9 @@ const PaymentSuccess = () => {
                   console.log("Carrito vacio");
                 }
               } else {
-                Swal.fire({
-                  title: `Error en la solicitud, ${postTicketResponse.statusText}`,
-                  icon: "error",
-                  showConfirmButton: false,
-                  timer: 2000,
-                });
+                console.error(
+                  `Error en la solicitud, ${postTicketResponse.statusText}`
+                );
               }
             } catch (error) {
               Swal.fire({
@@ -129,31 +126,16 @@ const PaymentSuccess = () => {
                 });
               }
             } catch (error) {
-              Swal.fire({
-                title: `${error} `,
-                icon: "error",
-                showConfirmButton: false,
-                timer: 2000,
-              });
+              console.error(`${error}`);
             }
           }
 
           /* FIN DE EMAIL */
         } else {
-          Swal.fire({
-            title: `Error en la solicitud, ${response.statusText} `,
-            icon: "error",
-            showConfirmButton: false,
-            timer: 2000,
-          });
+          console.error(`Error en la solicitud, ${response.statusText}`);
         }
       } catch (error) {
-        Swal.fire({
-          title: `Error en la solicitud, ${error} `,
-          icon: "error",
-          showConfirmButton: false,
-          timer: 2000,
-        });
+        console.error(`Error en la solicitud, ${error}`);
       }
     };
 

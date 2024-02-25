@@ -33,20 +33,12 @@ const AddToCartButton = ({ productId, quantity, onClick }) => {
         if (response.status === 200) {
           setCartProducts(data.mensaje.products);
         } else {
-          Swal.fire({
-            title: `Error al obtener datos del carrito: ${data.mensaje} `,
-            icon: "error",
-            showConfirmButton: false,
-            timer: 2000,
-          });
+          console.error(`Error al obtener datos del carrito: ${data.mensaje}`);
         }
       } catch (error) {
-        Swal.fire({
-          title: `Error inesperado al obtener datos del carrito: ${error} `,
-          icon: "error",
-          showConfirmButton: false,
-          timer: 2000,
-        });
+        console.error(
+          `Error inesperado al obtener datos del carrito: ${error} `
+        );
       }
     };
 
@@ -110,12 +102,7 @@ const AddToCartButton = ({ productId, quantity, onClick }) => {
                 });
               }
             } catch (error) {
-              Swal.fire({
-                title: `${error} `,
-                icon: "error",
-                showConfirmButton: false,
-                timer: 2000,
-              });
+              console.error(`${error}`);
             }
           }
         });
@@ -171,12 +158,7 @@ const AddToCartButton = ({ productId, quantity, onClick }) => {
         }
       }
     } catch (error) {
-      Swal.fire({
-        title: ` ${error} `,
-        icon: "error",
-        showConfirmButton: false,
-        timer: 2000,
-      });
+      console.error(`${error}`);
     } finally {
       setLoading(false);
     }

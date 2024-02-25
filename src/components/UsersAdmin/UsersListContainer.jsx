@@ -36,12 +36,7 @@ const UsersListContainer = () => {
           });
         }
       } catch (error) {
-        Swal.fire({
-          title: `Error en la solicitud, ${error} `,
-          icon: "error",
-          showConfirmButton: false,
-          timer: 2000,
-        });
+        console.error(`Error en la solicitud, ${error}`);
       } finally {
         setLoading(false);
       }
@@ -105,12 +100,7 @@ const UsersListContainer = () => {
         });
       }
     } catch (error) {
-      Swal.fire({
-        title: `Error en la solicitud, ${error} `,
-        icon: "error",
-        showConfirmButton: false,
-        timer: 2000,
-      });
+      console.error(`Error en la solicitud, ${error}`);
     }
   };
 

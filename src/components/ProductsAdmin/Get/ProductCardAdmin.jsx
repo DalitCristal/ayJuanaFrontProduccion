@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchUserData } from "../../../utils/fetchUserData";
 import { HOST } from "../../../config/config";
-import Swal from "sweetalert2";
 
 const ProductCardAdmin = ({ product }) => {
   const {
@@ -27,12 +26,7 @@ const ProductCardAdmin = ({ product }) => {
         const user = await fetchUserData(owner);
         setUserData(user);
       } catch (error) {
-        Swal.fire({
-          title: `Error en la solicitud, ${error} `,
-          icon: "error",
-          showConfirmButton: false,
-          timer: 2000,
-        });
+        console.error(`Error en la solicitud, ${error}`);
       }
     };
 

@@ -44,12 +44,7 @@ const DeleteUser = () => {
         });
       }
     } catch (error) {
-      Swal.fire({
-        title: `Error en la solicitud, ${error} `,
-        icon: "error",
-        showConfirmButton: false,
-        timer: 1500,
-      });
+      console.error(`Error en la solicitud, ${error}`);
     } finally {
       setLoading(false);
     }

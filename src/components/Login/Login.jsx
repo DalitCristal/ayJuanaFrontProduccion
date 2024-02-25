@@ -1,16 +1,14 @@
-import { useRef, useContext } from "react";
+import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { HOST } from "../../config/config";
 import { getUserFirstName } from "../ProtectedRoute/rolDelUsuario";
 import "../GlobalStyles/Formularios.css";
 import Swal from "sweetalert2";
 import "./Login.css";
-import { LoggerContext } from "../AdminDashboard/LoggerContext";
 
 const Login = () => {
   const formRef = useRef(null);
   const navigate = useNavigate();
-  const { addLog } = useContext(LoggerContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,7 +44,7 @@ const Login = () => {
 
       navigate("/");
     } else if (response.status === 401) {
-      addLog("Inicio de sesión fallido: Credenciales incorrectas");
+      console.error("Inicio de sesión fallido: Credenciales incorrectas");
 
       Swal.fire({
         title: `Correo electrónico o contraseña incorrecta`,
@@ -55,7 +53,7 @@ const Login = () => {
         timer: 1500,
       });
     } else {
-      addLog("Inicio de sesión fallido: error desconocido");
+      console.error("Inicio de sesión fallido: error desconocido");
     }
   };
 

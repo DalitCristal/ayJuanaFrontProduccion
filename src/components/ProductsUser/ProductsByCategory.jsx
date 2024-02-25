@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import getProducts from "./getProducts";
 import ProductCard from "./ProductCard";
-import Swal from "sweetalert2";
 
 const ProductsByCategory = () => {
   const { categoryName } = useParams();
@@ -29,12 +28,7 @@ const ProductsByCategory = () => {
 
         setProducts(categoryProducts);
       } catch (error) {
-        Swal.fire({
-          title: `Error en la solid ${error} `,
-          icon: "error",
-          showConfirmButton: false,
-          timer: 2000,
-        });
+        console.error(`Error en la solicitud ${error} `);
       } finally {
         setLoading(false);
       }

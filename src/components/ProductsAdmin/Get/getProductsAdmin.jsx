@@ -1,5 +1,4 @@
 import { HOST } from "../../../config/config";
-import Swal from "sweetalert2";
 
 const getProducts = async ({
   page = 1,
@@ -9,7 +8,7 @@ const getProducts = async ({
   sort,
 }) => {
   try {
-    let apiUrl = `${HOST}/api/products?page=${page}&pageSize=${pageSize}`;
+    let apiUrl = `${HOST}/api/products?page=${page}&limit=${pageSize}`;
 
     // Agregar filtros
     if (category) {
@@ -32,22 +31,12 @@ const getProducts = async ({
 
       return productsArray;
     } else {
-      Swal.fire({
-        title: `Error ${response.status} `,
-        icon: "error",
-        showConfirmButton: false,
-        timer: 2000,
-      });
+      console.error(`Error ${response.status} `);
 
       return [];
     }
   } catch (error) {
-    Swal.fire({
-      title: `Error ${error} `,
-      icon: "error",
-      showConfirmButton: false,
-      timer: 2000,
-    });
+    console.error(`Error ${error}`);
 
     return [];
   }

@@ -48,12 +48,7 @@ const ProductSearchForm = () => {
         }
       }
     } catch (error) {
-      Swal.fire({
-        title: `Error al buscar productos: ${error} `,
-        icon: "error",
-        showConfirmButton: false,
-        timer: 2000,
-      });
+      console.error(`Error al buscar productos: ${error}`);
     }
   };
 

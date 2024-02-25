@@ -1,5 +1,3 @@
-import Swal from "sweetalert2";
-
 export const getUserRole = () => {
   // Obtener el token desde las cookies
   const token = document.cookie
@@ -13,12 +11,7 @@ export const getUserRole = () => {
 
       return decodedToken.user.rol;
     } catch (error) {
-      Swal.fire({
-        title: `Error al decodificar ${error} `,
-        icon: "error",
-        showConfirmButton: false,
-        timer: 2000,
-      });
+      console.error(`Error al decodificar ${error} `);
     }
   }
 
@@ -38,12 +31,7 @@ export const getUserId = () => {
 
       return decodedToken.user._id;
     } catch (error) {
-      Swal.fire({
-        title: `Error al decodificar, ${error} `,
-        icon: "error",
-        showConfirmButton: false,
-        timer: 2000,
-      });
+      console.error(`Error al decodificar, ${error}`);
     }
   }
 
@@ -63,12 +51,7 @@ export const getUserFirstName = () => {
 
       return decodedToken.user.first_name;
     } catch (error) {
-      Swal.fire({
-        title: `Error al decodificar, ${error} `,
-        icon: "error",
-        showConfirmButton: false,
-        timer: 2000,
-      });
+      console.error(`Error al decodificar, ${error}`);
     }
   }
 

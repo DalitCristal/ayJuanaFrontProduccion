@@ -39,20 +39,10 @@ const Profile = () => {
           const data = await response.json();
           setUserData(data.mensaje);
         } else {
-          Swal.fire({
-            title: `Error en la solicitud, ${response} `,
-            icon: "error",
-            showConfirmButton: false,
-            timer: 2000,
-          });
+          console.error(`Error en la solicitud, ${response}`);
         }
       } catch (error) {
-        Swal.fire({
-          title: `Error en la solicitud, ${error} `,
-          icon: "error",
-          showConfirmButton: false,
-          timer: 2000,
-        });
+        console.error(`Error en la solicitud, ${error}`);
       }
     },
     [userId, setUserData]
@@ -151,12 +141,9 @@ const Profile = () => {
         });
       }
     } catch (error) {
-      Swal.fire({
-        title: `Error inesperado. Por favor, inténtalo de nuevo más tarde. ${error} `,
-        icon: "error",
-        showConfirmButton: false,
-        timer: 2000,
-      });
+      console.error(
+        `Error inesperado. Por favor, inténtalo de nuevo más tarde. ${error}`
+      );
     }
   };
 

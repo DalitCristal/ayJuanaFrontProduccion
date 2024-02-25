@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import ProductsListAdmin from "./ProductsListAdmin.jsx";
 import getProductsAdmin from "./getProductsAdmin.jsx";
-import Swal from "sweetalert2";
 import "./ProductsListContainerAdmin.css";
 
 const ProductsListContainerAdmin = () => {
@@ -26,12 +25,7 @@ const ProductsListContainerAdmin = () => {
 
         setProducts(allProducts);
       } catch (error) {
-        Swal.fire({
-          title: `Error al recuperar productos: ${error} `,
-          icon: "error",
-          showConfirmButton: false,
-          timer: 1500,
-        });
+        console.error(`Error al recuperar productos: ${error}`);
       } finally {
         setLoading(false);
       }

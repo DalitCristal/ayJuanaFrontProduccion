@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import ProductsList from "./ProductsList.jsx";
 import getProducts from "./getProducts.jsx";
 import "./ProductsListContainer.css";
-import Swal from "sweetalert2";
 
 const ProductsListContainer = () => {
   const [products, setProducts] = useState([]);
@@ -25,12 +24,7 @@ const ProductsListContainer = () => {
 
         setProducts(allProducts);
       } catch (error) {
-        Swal.fire({
-          title: `Error en la solicitud ${error} `,
-          icon: "error",
-          showConfirmButton: false,
-          timer: 2000,
-        });
+        console.error(`Error en la solicitud ${error}`);
       } finally {
         setLoading(false);
       }

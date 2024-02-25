@@ -1,6 +1,5 @@
 import { getCookiesByName } from "./formsUtils";
 import { HOST } from "../config/config";
-import Swal from "sweetalert2";
 
 // Función para obtener los detalles del usuario por Id
 export const fetchUserData = async (id) => {
@@ -19,22 +18,12 @@ export const fetchUserData = async (id) => {
       return { data: data.mensaje };
     } else {
       const errorData = await response.json();
-      Swal.fire({
-        title: `Error al obtener información, ${errorData.mensaje} `,
-        icon: "error",
-        showConfirmButton: false,
-        timer: 2000,
-      });
+      console.error(`Error al obtener información, ${errorData.mensaje} `);
 
       return { error: errorData.mensaje };
     }
   } catch (error) {
-    Swal.fire({
-      title: `Error en la solicitud, ${error} `,
-      icon: "error",
-      showConfirmButton: false,
-      timer: 2000,
-    });
+    console.error(`Error en la solicitud, ${error}`);
 
     return;
   }
@@ -60,19 +49,9 @@ export const updateUser = async (id, updatedUserData) => {
       return data;
     } else {
       const errorData = await response.json();
-      Swal.fire({
-        title: `${errorData.mensaje} `,
-        icon: "error",
-        showConfirmButton: false,
-        timer: 2000,
-      });
+      console.error(`${errorData.mensaje}`);
     }
   } catch (error) {
-    Swal.fire({
-      title: `Error al actualizar los datos del usuario: ${error} `,
-      icon: "error",
-      showConfirmButton: false,
-      timer: 2000,
-    });
+    console.error(`Error al actualizar los datos del usuario: ${error}`);
   }
 };

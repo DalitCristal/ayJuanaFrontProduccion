@@ -63,12 +63,7 @@ const DeleteMyAccount = () => {
         });
       }
     } catch (error) {
-      Swal.fire({
-        title: `Error inesperado al eliminar la cuenta, ${error} `,
-        icon: "error",
-        showConfirmButton: false,
-        timer: 2000,
-      });
+      console.error(`Error inesperado al eliminar la cuenta, ${error}`);
     }
   };
 
