@@ -13,8 +13,10 @@ const CartWidget = () => {
     const fetchCart = async () => {
       try {
         const token = getCookiesByName("jwtCookie");
+        console.log("TOKEN", token);
         if (!token) return;
         const { user } = JSON.parse(atob(token.split(".")[1]));
+        console.log("TOKEN DECODIFICADO", user);
         const id = user.cart;
         setUserId(user._id);
 

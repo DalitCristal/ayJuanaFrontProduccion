@@ -73,7 +73,7 @@ const PaymentMP = () => {
           }));
         } else {
           Swal.fire({
-            title: `${data.mensaje} `,
+            title: `${data.mensaje}`,
             icon: "warning",
             showConfirmButton: false,
             timer: 2000,
