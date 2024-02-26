@@ -42,7 +42,9 @@ const Profile = () => {
           const data = await response.json();
           setUserData(data.mensaje);
         } else {
-          console.error(`Error en la solicitud, ${response}`);
+          const erroData = await response.json();
+
+          console.error(`Error en la solicitud, ${erroData}`);
         }
       } catch (error) {
         console.error(`Error en la solicitud, ${error}`);
