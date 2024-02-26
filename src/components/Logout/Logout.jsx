@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { HOST } from "../../config/config";
 import Swal from "sweetalert2";
 import { getCookiesByName } from "../../utils/formsUtils";
+import { getUserRole } from "../ProtectedRoute/rolDelUsuario";
 
 const Logout = () => {
   const navigate = useNavigate();
+  const userRole = getUserRole();
 
   useEffect(() => {
     const logout = async () => {
@@ -16,6 +18,7 @@ const Logout = () => {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
+            rol: userRole,
           },
           credentials: "include",
         });
@@ -38,7 +41,7 @@ const Logout = () => {
     };
 
     logout();
-  }, [navigate]);
+  }, [navigate, userRole]);
 
   return <div>Saliendo de tu cuenta...</div>;
 };

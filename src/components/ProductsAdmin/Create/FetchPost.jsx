@@ -1,14 +1,17 @@
 import { HOST } from "../../../config/config";
 import Swal from "sweetalert2";
+import { getUserRole } from "../../ProtectedRoute/rolDelUsuario";
 
 const postProduct = async ({ token, data }) => {
   try {
     let apiUrl = `${HOST}/api/products`;
+    const userRole = getUserRole();
 
     const response = await fetch(apiUrl, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
+        rol: userRole,
         "Content-type": "application/json",
       },
       body: JSON.stringify(data),

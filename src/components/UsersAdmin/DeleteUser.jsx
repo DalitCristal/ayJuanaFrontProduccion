@@ -4,10 +4,11 @@ import { getCookiesByName } from "../../utils/formsUtils";
 import "./DeleteUser.css";
 import { HOST } from "../../config/config";
 import Swal from "sweetalert2";
-
+import { getUserRole } from "../ProtectedRoute/rolDelUsuario";
 const DeleteUser = () => {
   const { userId } = useParams();
   const navigate = useNavigate();
+  const userRole = getUserRole();
 
   const [loading, setLoading] = useState(false);
 
@@ -20,6 +21,7 @@ const DeleteUser = () => {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
+          rol: userRole,
         },
         credentials: "include",
       });

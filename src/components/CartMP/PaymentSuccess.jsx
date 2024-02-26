@@ -71,6 +71,7 @@ const PaymentSuccess = () => {
                     method: "DELETE",
                     headers: {
                       Authorization: `Bearer ${token}`,
+                      rol: user.rol,
                     },
                     credentials: "include",
                   }

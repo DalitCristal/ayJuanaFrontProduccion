@@ -5,12 +5,14 @@ import { getCookiesByName } from "../../utils/formsUtils";
 import { HOST } from "../../config/config";
 import Swal from "sweetalert2";
 import "./DeleteMyAccount.css";
+import { getUserRole } from "../ProtectedRoute/rolDelUsuario";
 
 const DeleteMyAccount = () => {
   const { userId } = useParams();
   const [confirmation, setConfirmation] = useState(false);
 
   const navigate = useNavigate();
+  const userRole = getUserRole();
 
   const handleDeleteAccount = async () => {
     try {
@@ -33,6 +35,7 @@ const DeleteMyAccount = () => {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
+          rol: userRole,
         },
         credentials: "include",
       });

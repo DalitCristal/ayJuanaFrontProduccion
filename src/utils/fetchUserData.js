@@ -36,11 +36,13 @@ export const fetchUserData = async (id) => {
 export const updateUser = async (id, updatedUserData) => {
   try {
     const token = getCookiesByName("jwtCookie");
+    const userRole = getUserRole();
 
     const response = await fetch(`${HOST}/api/users/premium/${id}`, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,
+        rol: userRole,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(updatedUserData),

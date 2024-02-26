@@ -4,6 +4,7 @@ import { getCookiesByName, isTokenExpired } from "../../../utils/formsUtils";
 import { useNavigate } from "react-router-dom";
 import { HOST } from "../../../config/config";
 import Swal from "sweetalert2";
+import { getUserRole } from "../../ProtectedRoute/rolDelUsuario";
 
 const ImageUpload = ({ productId }) => {
   const fileInputRef = useRef(null);
@@ -12,6 +13,7 @@ const ImageUpload = ({ productId }) => {
 
   const handleFileChange = async () => {
     const files = fileInputRef.current?.files;
+    const userRole = getUserRole();
 
     if (files && files.length > 0) {
       const formData = new FormData();
@@ -40,6 +42,7 @@ const ImageUpload = ({ productId }) => {
             method: "POST",
             headers: {
               Authorization: `Bearer ${token}`,
+              rol: userRole,
               "Content-type": "application/json",
             },
             body: formData,

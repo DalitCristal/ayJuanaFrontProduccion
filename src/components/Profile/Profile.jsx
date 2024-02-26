@@ -113,6 +113,7 @@ const Profile = () => {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
+          rol: userRole,
         },
         body: JSON.stringify(updatedFields),
         credentials: "include",

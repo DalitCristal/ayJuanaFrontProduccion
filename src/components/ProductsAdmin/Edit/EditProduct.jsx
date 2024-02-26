@@ -4,6 +4,7 @@ import { getCookiesByName, isTokenExpired } from "../../../utils/formsUtils";
 import Swal from "sweetalert2";
 import { HOST } from "../../../config/config.js";
 import "./EditProduct.css";
+import { getUserRole } from "../../ProtectedRoute/rolDelUsuario.js";
 
 const EditProduct = () => {
   const { productId } = useParams();
@@ -57,6 +58,7 @@ const EditProduct = () => {
     const dataFormu = new FormData(formuRef.current);
     const data = Object.fromEntries(dataFormu);
     const token = getCookiesByName("jwtCookie");
+    const userRole = getUserRole();
 
     if (isTokenExpired(token)) {
       document.cookie =
@@ -87,6 +89,7 @@ const EditProduct = () => {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,
+          rol: userRole,
           "Content-type": "application/json",
         },
         body: JSON.stringify(data),

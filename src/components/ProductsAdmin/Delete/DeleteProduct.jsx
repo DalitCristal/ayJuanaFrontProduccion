@@ -4,11 +4,13 @@ import { getCookiesByName, isTokenExpired } from "../../../utils/formsUtils.js";
 import { HOST } from "../../../config/config.js";
 import Swal from "sweetalert2";
 import "./DeleteProduct.css";
+import { getUserRole } from "../../ProtectedRoute/rolDelUsuario.js";
 
 const DeleteProduct = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const userRole = getUserRole();
 
   const handleDelete = async () => {
     try {
@@ -35,6 +37,7 @@ const DeleteProduct = () => {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
+          rol: userRole,
         },
         credentials: "include",
       });

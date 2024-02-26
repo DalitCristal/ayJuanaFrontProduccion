@@ -77,6 +77,7 @@ const UsersListContainer = () => {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
+          rol: userRole,
         },
         credentials: "include",
       });
