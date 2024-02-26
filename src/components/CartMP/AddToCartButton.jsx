@@ -5,6 +5,7 @@ import { getCookiesByName } from "../../utils/formsUtils";
 import { HOST } from "../../config/config";
 import { getInfoProduct } from "../../utils/getInfoProduct";
 import Swal from "sweetalert2";
+import { getUserRole } from "../ProtectedRoute/rolDelUsuario";
 
 const AddToCartButton = ({ productId, quantity, onClick }) => {
   const [loading, setLoading] = useState(false);
@@ -14,6 +15,7 @@ const AddToCartButton = ({ productId, quantity, onClick }) => {
   const user = token ? JSON.parse(atob(token.split(".")[1])).user : null;
 
   const navigate = useNavigate();
+  const userRole = getUserRole();
 
   useEffect(() => {
     const fetchCart = async () => {
@@ -25,6 +27,7 @@ const AddToCartButton = ({ productId, quantity, onClick }) => {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
+            rol: userRole,
           },
           credentials: "include",
         });
@@ -43,7 +46,7 @@ const AddToCartButton = ({ productId, quantity, onClick }) => {
     };
 
     fetchCart();
-  }, [user.cart, token]);
+  }, [user.cart, token, userRole]);
 
   const handleAddToCart = async () => {
     try {
@@ -77,6 +80,7 @@ const AddToCartButton = ({ productId, quantity, onClick }) => {
                   headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,
+                    rol: userRole,
                   },
                   body: JSON.stringify({ quantity: newQuantity }),
                   credentials: "include",
@@ -127,6 +131,7 @@ const AddToCartButton = ({ productId, quantity, onClick }) => {
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer ${token}`,
+              rol: userRole,
             },
             body: JSON.stringify({ quantity }),
             credentials: "include",

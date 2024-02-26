@@ -39,6 +39,7 @@ const PaymentMP = () => {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
+            rol: user.rol,
           },
           credentials: "include",
         });

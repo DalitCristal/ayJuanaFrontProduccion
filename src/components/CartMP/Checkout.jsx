@@ -20,6 +20,7 @@ const Checkout = ({ onClick }) => {
   const token = getCookiesByName("jwtCookie");
   const { user } = JSON.parse(atob(token.split(".")[1]));
   const cid = user.cart;
+  const userRol = user.rol;
 
   useEffect(() => {
     const quantityChanged = products.some(
@@ -36,6 +37,7 @@ const Checkout = ({ onClick }) => {
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer ${token}`,
+              rol: userRol,
             },
             body: JSON.stringify(products),
             credentials: "include",
@@ -55,7 +57,7 @@ const Checkout = ({ onClick }) => {
       };
       fetchData();
     }
-  }, [products, cid]);
+  }, [products, cid, userRol]);
 
   const shoppingCartClass = classnames("shopping-cart dark", {
     "shopping-cart--hidden": !isVisible,
@@ -129,6 +131,7 @@ const Checkout = ({ onClick }) => {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${token}`,
+            rol: userRol,
           },
           credentials: "include",
         }
@@ -174,6 +177,7 @@ const Checkout = ({ onClick }) => {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
+          rol: userRol,
         },
         credentials: "include",
       });

@@ -3,11 +3,13 @@ import Header from "../Header/Header";
 import { HOST } from "../../config/config";
 import Swal from "sweetalert2";
 import { getCookiesByName } from "../../utils/formsUtils";
+import { getUserRole } from "../ProtectedRoute/rolDelUsuario";
 
 const PaymentSuccess = () => {
   const [paymentInfo, setPaymentInfo] = useState(null);
   const queryParams = new URLSearchParams(location.search);
   const paymentId = queryParams.get("payment_id");
+  const userRole = getUserRole();
 
   useEffect(() => {
     const fetchPaymentInfo = async () => {
@@ -19,6 +21,7 @@ const PaymentSuccess = () => {
           {
             headers: {
               Authorization: `Bearer ${tokenMP}`,
+              rol: userRole,
             },
             credentials: "include",
           }
@@ -140,7 +143,7 @@ const PaymentSuccess = () => {
     };
 
     fetchPaymentInfo();
-  }, [paymentId]);
+  }, [paymentId, userRole]);
 
   return (
     <>

@@ -33,7 +33,7 @@ const Login = () => {
         sameSite: "strict",
       };
       document.cookie = `jwtCookie=${datos.token}; ${cookieOptions}`;
-
+      console.log("document.cookie", document.cookie);
       const nameUser = getUserFirstName();
       Swal.fire({
         position: "top",
