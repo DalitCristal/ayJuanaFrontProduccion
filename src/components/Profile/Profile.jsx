@@ -5,6 +5,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import { HOST } from "../../config/config.js";
 import "./Profile.css";
 import Swal from "sweetalert2";
+import { getUserRole } from "../ProtectedRoute/rolDelUsuario.js";
 
 const Profile = () => {
   const { userId } = useParams();
@@ -16,6 +17,7 @@ const Profile = () => {
     email: false,
     password: false,
   });
+  const userRole = getUserRole();
 
   // Nuevos estados para campos editables
   const [newFirstName, setNewFirstName] = useState("");
@@ -31,6 +33,7 @@ const Profile = () => {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
+            rol: userRole,
           },
           credentials: "include",
         });
@@ -45,7 +48,7 @@ const Profile = () => {
         console.error(`Error en la solicitud, ${error}`);
       }
     },
-    [userId, setUserData]
+    [userId, setUserData, userRole]
   );
 
   useEffect(() => {
