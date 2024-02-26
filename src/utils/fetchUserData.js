@@ -1,15 +1,18 @@
 import { getCookiesByName } from "./formsUtils";
 import { HOST } from "../config/config";
+import { getUserRole } from "../components/ProtectedRoute/rolDelUsuario";
 
 // Función para obtener los detalles del usuario por Id
 export const fetchUserData = async (id) => {
   try {
     const token = getCookiesByName("jwtCookie");
+    const userRole = getUserRole();
 
     const response = await fetch(`${HOST}/api/users/${id}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
+        rol: userRole,
       },
       credentials: "include",
     });

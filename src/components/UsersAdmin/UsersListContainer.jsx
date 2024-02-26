@@ -4,12 +4,14 @@ import { HOST } from "../../config/config";
 import UsersList from "./UsersList";
 import "./usersStyles.css";
 import Swal from "sweetalert2";
+import { getUserRole } from "../ProtectedRoute/rolDelUsuario";
 
 const UsersListContainer = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedUsers, setSelectedUsers] = useState([]);
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const userRole = getUserRole();
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -20,6 +22,7 @@ const UsersListContainer = () => {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
+            rol: userRole,
           },
           credentials: "include",
         });
@@ -43,7 +46,7 @@ const UsersListContainer = () => {
     };
 
     fetchUsers();
-  }, []);
+  }, [userRole]);
 
   const handleSelectUser = (userId) => {
     if (selectedUsers.includes(userId)) {
